@@ -11,10 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "web-vitals": "^1.0.0"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.14.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0"
   }
