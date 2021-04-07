@@ -86,6 +86,7 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch("getPages");
     this.$store.dispatch("getPosts");
   },
   methods: {
