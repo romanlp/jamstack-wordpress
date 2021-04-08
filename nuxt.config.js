@@ -1,12 +1,13 @@
-let dynamicRoutes = () => {
-    const routesPosts = fetch("https://areeltrip.com/wp-json/wp/v2/posts?page=1&per_page=20").then(res => {
-        return res.data.map(post => `/blog/${post.slug}`)
-    })
-    const routesPages = fetch("https://areeltrip.com/wp-json/wp/v2/pages?page=1&per_page=20").then(res => {
-        return res.data.map(post => `/${post.slug}`)
-    })
-    console.log(routes)
-    return [...routesPosts, ...routesPages]
+import fetch from "node-fetch";
+
+let dynamicRoutes = async () => {
+    const routesPosts = await fetch("https://areeltrip.com/wp-json/wp/v2/posts?page=1&per_page=20")
+        .then(res => res.json())
+        .then(data => data.map(post => `/blog/${post.slug}`));
+    const routesPages = await fetch("https://areeltrip.com/wp-json/wp/v2/pages?page=1&per_page=20")
+        .then(res => res.json())
+        .then(data => data.map(post => `/${post.slug}`));
+    return [...routesPosts, ...routesPages];
 }
 
 export default {

@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.0",
+    "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.0"
   }
