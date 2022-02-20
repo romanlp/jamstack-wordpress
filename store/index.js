@@ -1,12 +1,16 @@
 const siteURL = "https://areeltrip.com"
 
 export const state = () => ({
+  info: {},
   pages: [],
   posts: [],
   tags: []
 })
 
 export const mutations = {
+  updateBlogInfo: (state, info) => {
+    state.info = info
+  },
   updatePages: (state, pages) => {
     state.pages = pages
   },
@@ -19,6 +23,17 @@ export const mutations = {
 }
 
 export const actions = {
+  async getBlogInfo({ commit }) {
+    try {
+      let info = await fetch(
+        `${siteURL}/wp-json`
+      ).then(res => res.json())
+
+      commit("updateBlogInfo", info)
+    } catch (err) {
+      console.log(err)
+    }
+  },
   async getPages({ state, commit }) {
     if (state.pages.length) return
 

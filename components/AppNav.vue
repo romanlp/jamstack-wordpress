@@ -3,7 +3,7 @@
     <ul>
       <li>
         <nuxt-link exact to="/">
-          <app-icon></app-icon>BlogName
+          <app-icon></app-icon>{{info.name}}
         </nuxt-link>
       </li>
       <li>
@@ -19,7 +19,12 @@ import AppIcon from "@/components/AppIcon.vue";
 export default {
   components: {
     AppIcon
-  }
+  },
+  computed: {
+    info() {
+      return this.$store.state.info;
+    },
+  },
 };
 </script>
 

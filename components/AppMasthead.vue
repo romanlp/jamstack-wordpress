@@ -1,6 +1,7 @@
 <template>
   <section class="masthead">
-    <h1>{{ tagline }}</h1>
+    <h1>{{ info.name }}</h1>
+    <h4>{{ info.description }}</h4>
   </section>
 </template>
 
@@ -10,7 +11,15 @@ export default {
     return {
       tagline: "Headless WordPress on the JAMstack"
     };
-  }
+  },
+  computed: {
+    info() {
+      return this.$store.state.info;
+    },
+  },
+  created() {
+    this.$store.dispatch("getBlogInfo");
+  },
 };
 </script>
 
@@ -22,6 +31,7 @@ section.masthead {
   overflow: hidden;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 7vw;
@@ -53,6 +63,10 @@ section.masthead {
   h1 {
     color: white;
     @include fluid-type(font-size, 320px, 1366px, 30px, 65px);
+  }
+  h4 {
+    color: white;
+    @include fluid-type(font-size, 320px, 1366px, 20px, 35px);
   }
 }
 </style>
