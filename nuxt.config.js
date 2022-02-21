@@ -1,3 +1,4 @@
+import { defineNuxtConfig } from '@nuxt/bridge'
 import fetch from "node-fetch";
 
 let dynamicRoutes = async () => {
@@ -10,7 +11,7 @@ let dynamicRoutes = async () => {
     return [...routesPosts, ...routesPages];
 }
 
-export default {
+export default defineNuxtConfig({
     target: 'static',
     /*
      ** Headers of the page
@@ -64,4 +65,4 @@ export default {
         extend(config, ctx) {
         }
     }
-}
+});
