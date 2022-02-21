@@ -43,10 +43,10 @@ export default defineNuxtConfig({
      ** Plugins to load before mounting the App
      */
     plugins: [
-        "~/plugins/pages.server.js",
-        "~/plugins/posts.server.js",
-        "~/plugins/tags.server.js",
-        "~/plugins/dateformat.js"
+        "~/plugins/pages.server.ts",
+        "~/plugins/posts.server.ts",
+        "~/plugins/tags.server.ts",
+        "~/plugins/dateformat.ts"
     ],
     generate: {
         routes: dynamicRoutes
